@@ -1,0 +1,16 @@
+#JSGF V1.0;
+
+grammar hello;
+
+
+<playlist> = sleep;
+<play_playlist> = [ shuffle ] play [ my | the ] <playlist> [ playlist ];
+<lights_command> = [ turn the ] lights ( on | off );
+
+
+<polite> = please;
+<polite_end> = <polite> | thanks | ( thank you );
+
+<commands> = <play_playlist>|<lights_command>;
+
+public <command> = <polite> * <commands> <polite_end> *;
